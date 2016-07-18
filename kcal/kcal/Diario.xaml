@@ -8,6 +8,6 @@
     <ToolbarItem x:Name="btn_adddiary" Name="Add"/>
   </ContentPage.ToolbarItems>
 
-  <Label Text="Diary entries list AA" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" />
+  <Label Text="Diary entries list" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" />
 
 </ContentPage>
