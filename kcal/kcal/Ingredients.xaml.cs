@@ -1,4 +1,5 @@
-﻿using System;
+﻿using kcal.db;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,9 +14,8 @@ namespace kcal
         public Ingredients()
         {
             InitializeComponent();
-
+            IngredientsList.ItemsSource = Model.getInstance().Ingredients;
             btn_addingredient.Clicked += Btn_addingredient_Clicked;
-
         }
 
         private void Btn_addingredient_Clicked(object sender, EventArgs e)

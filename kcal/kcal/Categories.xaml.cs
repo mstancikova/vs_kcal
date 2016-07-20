@@ -1,4 +1,5 @@
-﻿using System;
+﻿using kcal.db;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,11 +9,12 @@ using Xamarin.Forms;
 
 namespace kcal
 {
-    public partial class Category : ContentPage
+    public partial class Categories : ContentPage
     {
-        public Category()
+        public Categories()
         {
             InitializeComponent();
+            CategoriesList.ItemsSource = Model.getInstance().Categories;
             btn_addcategory.Clicked += Btn_addcategory_Clicked;
         }
 

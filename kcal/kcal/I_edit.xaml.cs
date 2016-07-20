@@ -13,6 +13,12 @@ namespace kcal
         public I_edit()
         {
             InitializeComponent();
+            btn_choose_categories.Clicked += Btn_choose_categories_Clicked;
+        }
+
+        private void Btn_choose_categories_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Categories());
         }
     }
 }

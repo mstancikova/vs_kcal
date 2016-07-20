@@ -4,6 +4,11 @@
              x:Class="kcal.F_edit"
              Title="Food new or edit">
 
-  <Label Text="Food New or Edit" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" />
+    <StackLayout  Padding="5,10">
+      <Label TextColor="#345c67" FontSize = "20" FontAttributes="Bold" Text="Food name:" />
+      <Entry x:Name="f_FName" Keyboard="Text" Placeholder="Food name"/>
+
+      <Button x:Name="btn_save" Text="Save" />
+    </StackLayout>
   
 </ContentPage>

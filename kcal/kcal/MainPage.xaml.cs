@@ -14,6 +14,7 @@ namespace kcal
             try {
                 InitializeComponent();
                 btn_diario.Clicked += Btn_diario_Clicked;
+                btn_categories.Clicked += Btn_categories_Clicked;
                 btn_ingredients.Clicked += Btn_ingredients_Clicked;
                 btn_foods.Clicked += Btn_foods_Clicked;
 
@@ -22,6 +23,11 @@ namespace kcal
                 int i = 1;
             }
 
+        }
+
+        private void Btn_categories_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Categories());
         }
 
         private void Btn_foods_Clicked(object sender, EventArgs e)

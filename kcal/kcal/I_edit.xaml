@@ -3,7 +3,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="kcal.I_edit"
              Title="Diary Entry">
-  
-  <Label Text="Ingredient New or Edit" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" />
+
+  <StackLayout>
+    <StackLayout  Padding="5,10">
+      <Label TextColor="#345c67" FontSize = "20" FontAttributes="Bold" Text="Category:" />
+      <StackLayout Orientation="Horizontal">
+        <Entry x:Name="f_ICategory" Placeholder="Category name" IsEnabled="false"/>
+        <!-- button to choose category from list which fill f_ICategory -->
+        <Button x:Name="btn_choose_categories" Text="Choose category" />
+      </StackLayout>
+    </StackLayout>
+    <StackLayout  Padding="5,10">
+      <Label TextColor="#345c67" FontSize = "20" FontAttributes="Bold" Text="Ingredient name:" />
+      <Entry x:Name="f_IName" Keyboard="Text" Placeholder="Ingredient name"/>
+    </StackLayout>
+    <StackLayout  Padding="5,10">
+      <Label TextColor="#345c67" FontSize = "20" FontAttributes="Bold" Text="Kcal/g:" />
+      <Entry x:Name="f_IKcalg" Keyboard="Text" Placeholder="Kcal on gram"/>
+    </StackLayout>
+    
+    <Button x:Name="btn_save" Text="Save" />
+  </StackLayout>
   
 </ContentPage>

@@ -4,6 +4,23 @@
              x:Class="kcal.D_edit"
              Title="Diary Edit Page">
 
-  <Label Text="Diary New or Edit" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" />
+  <StackLayout>
+    <StackLayout  Padding="5,10">
+      <StackLayout Orientation="Horizontal" Padding="5,10">
+        <!-- button to choose ingredient from list which fill f_DEntry-->
+        <Button x:Name="btn_choose_ingredient" Text="Choose ingredient" />
+        <!-- button to choose food from list which fill f_DEntry-->
+        <Button x:Name="btn_choose_food" Text="Choose food" />
+      </StackLayout>
+      <Label TextColor="#345c67" FontSize = "20" FontAttributes="Bold" Text="Name:" />
+      <Entry x:Name="f_DEntry" Placeholder="Ingredient/Food name" IsEnabled="false"/>
+    </StackLayout>
+    <StackLayout  Padding="5,10">
+      <Label TextColor="#345c67" FontSize = "20" FontAttributes="Bold" Text="Quantity (g):" />
+      <Entry x:Name="f_DQuantity" Keyboard="Text"/>
+    </StackLayout>
+
+    <Button x:Name="btn_save" Text="Save" />
+  </StackLayout>
   
 </ContentPage>

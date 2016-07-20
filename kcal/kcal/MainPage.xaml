@@ -3,19 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:kcal"
              x:Class="kcal.MainPage"
-             Title="Main Page">
-      <ScrollView>
-        <StackLayout x:Name="layout" Orientation="Vertical" VerticalOptions="Start" HorizontalOptions="Center">
-          <ActivityIndicator x:Name="activity"></ActivityIndicator>
-
-          <Label Text="My APP" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" />
-
-          <Button x:Name="btn_diario" Text="Diario" />
-
-          <Button x:Name="btn_ingredients" Text="Ingredeints" />
-
-          <Button x:Name="btn_foods" Text="Foods" />
-
-        </StackLayout>
-      </ScrollView>
+             Title="Kcal">
+  <StackLayout>
+    <StackLayout Orientation="Vertical" VerticalOptions="Start" HorizontalOptions="Center">
+      <ActivityIndicator x:Name="activity"></ActivityIndicator>
+      <Button x:Name="btn_diario" Text="Diario" />
+      <Button x:Name="btn_categories" Text="Categories" />
+      <Button x:Name="btn_ingredients" Text="Ingredeints" />
+      <Button x:Name="btn_foods" Text="Foods" />
+    </StackLayout>
+  </StackLayout>
+        
 </ContentPage>

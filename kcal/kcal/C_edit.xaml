@@ -4,6 +4,13 @@
              x:Class="kcal.C_edit"
              Title="Category new or edit">
 
-  <Label Text="Category New or Edit" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" />
+    <StackLayout Padding="5,10">
+      
+      <Label TextColor="#345c67" FontSize = "20" FontAttributes="Bold" Text="Category name:" />
+      <Entry x:Name="f_Cname" Keyboard="Text" Placeholder="Category name"/>
+
+      <Button x:Name="btn_save" Text="Save" />
+      
+    </StackLayout>
   
 </ContentPage>

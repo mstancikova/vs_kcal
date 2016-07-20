@@ -2,14 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:kcal;assembly=kcal"
-             x:Class="kcal.Ingredients"
-             Title="Ingredients list">
+             x:Class="kcal.Categories"
+             Title="Categories list">
 
   <ContentPage.ToolbarItems>
-    <ToolbarItem x:Name="btn_addingredient" Name="Add" />
+    <ToolbarItem x:Name="btn_addcategory" Name="Add" />
   </ContentPage.ToolbarItems>
 
-  <ListView x:Name="IngredientsList">
+
+  <ListView x:Name="CategoriesList">
     <ListView.ItemTemplate>
       <DataTemplate>
         <ViewCell>
@@ -20,12 +21,8 @@
               <Label Text="{Binding ID}"
                    FontAttributes="Bold"
                    FontSize="Medium" />
-              <Label Text="{Binding ICName}"
+              <Label Text="{Binding CName}"
                    FontAttributes="Italic"
-                   FontSize="Medium" />
-              <Label Text="{Binding IName}"
-                   FontSize="Medium" />
-              <Label Text="{Binding IKcalg}"
                    FontSize="Medium" />
             </StackLayout>
           </ViewCell.View>
@@ -33,5 +30,5 @@
       </DataTemplate>
     </ListView.ItemTemplate>
   </ListView>
-  
+
 </ContentPage>
