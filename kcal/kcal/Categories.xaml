@@ -9,21 +9,25 @@
     <ToolbarItem x:Name="btn_addcategory" Name="Add" />
   </ContentPage.ToolbarItems>
 
-
-  <ListView x:Name="CategoriesList">
+  
+ <ListView x:Name="CategoriesList">
     <ListView.ItemTemplate>
       <DataTemplate>
         <ViewCell>
+          
+          <ViewCell.ContextActions>
+            <MenuItem Text="Select" />
+            <MenuItem Text="Edit" />
+            <MenuItem Text="Delete" Clicked="cm_btn_delete"/>
+          </ViewCell.ContextActions>
+
           <ViewCell.View>
             <StackLayout Padding="5, 5, 0, 5"
                          Orientation="Horizontal"
                          Spacing="15">
-              <Label Text="{Binding ID}"
-                   FontAttributes="Bold"
-                   FontSize="Medium" />
-              <Label Text="{Binding CName}"
-                   FontAttributes="Italic"
-                   FontSize="Medium" />
+              <Label x:Name="lbl_ID" Text="{Binding ID}" />
+              <Label x:Name="lbl_CName" Text="{Binding CName}"
+                     FontAttributes="Bold" />
             </StackLayout>
           </ViewCell.View>
         </ViewCell>
@@ -31,4 +35,6 @@
     </ListView.ItemTemplate>
   </ListView>
 
+
+  
 </ContentPage>

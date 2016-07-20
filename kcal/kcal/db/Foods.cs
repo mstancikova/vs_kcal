@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace kcal.db
 {
-    public class Ingredients
+    public class Foods
     {
         public int ID { get; set; }
-        public string FK_CID { get; set; }
-        public string IName { get; set; }
-        public double IKcalg { get; set; }
+        public string FName { get; set; }
+        public double FKcalg { get; set; }
     }
 }

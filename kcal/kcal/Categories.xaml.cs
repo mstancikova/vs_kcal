@@ -22,5 +22,15 @@ namespace kcal
         {
             Navigation.PushAsync(new C_edit());
         }
+
+
+
+        /* test */
+        public void cm_btn_delete(object sender, EventArgs e)
+        {
+            var mi = ((MenuItem)sender);
+            DisplayAlert("Delete Context Action", mi.Text + " this item?", "OK");
+        }
+
     }
 }

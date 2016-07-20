@@ -1,15 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:kcal;assembly=kcal"
-             x:Class="kcal.Ingredients"
-             Title="Ingredients list">
+             x:Class="kcal.FIngredients"
+             Title="Food Ingredients List">
 
   <ContentPage.ToolbarItems>
-    <ToolbarItem x:Name="btn_addingredient" Name="Add" />
+    <ToolbarItem x:Name="btn_addfoodingredient" Name="Add" />
   </ContentPage.ToolbarItems>
 
-  <ListView x:Name="IngredientsList">
+  <ListView x:Name="FoodIngredients">
     <ListView.ItemTemplate>
       <DataTemplate>
         <ViewCell>
@@ -18,10 +17,10 @@
                          Orientation="Horizontal"
                          Spacing="15">
               <Label Text="{Binding ID}" />
-              <Label Text="{Binding ICName}" 
-                     FontAttributes="Bold" />
-              <Label Text="{Binding IName}" />
-              <Label Text="{Binding IKcalg}" />
+              <Label Text="{Binding FK_FoodID}" />
+              <Label Text="{Binding FK_IngredientID}" />
+              <Label Text="{Binding FI_Quantity}" />
+              <Label Text="{Binding FI_Kcal}" />
             </StackLayout>
           </ViewCell.View>
         </ViewCell>

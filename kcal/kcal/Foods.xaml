@@ -8,6 +8,23 @@
     <ToolbarItem x:Name="btn_addfood" Name="Add" />
   </ContentPage.ToolbarItems>
 
-  <Label Text="Food list" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" />
+  <ListView x:Name="FoodsList">
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <ViewCell.View>
+            <StackLayout Padding="5, 5, 0, 5"
+                         Orientation="Horizontal"
+                         Spacing="15">
+              <Label Text="{Binding ID}" />
+              <Label Text="{Binding FName}" 
+                     FontAttributes="Bold" />
+              <Label Text="{Binding FKcalg}" />
+            </StackLayout>
+          </ViewCell.View>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
 
 </ContentPage>
