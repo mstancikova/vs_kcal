@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:kcal;assembly=kcal"
              x:Class="kcal.FI_edit"
              Title="Food Ingredient Add or Edit ">
 
@@ -8,18 +9,18 @@
     <StackLayout  Padding="5,10">
       <Label TextColor="#345c67" FontSize = "20" FontAttributes="Bold" Text="Ingredient:" />
       <StackLayout Orientation="Horizontal">
-        <Entry x:Name="f_FIIngredient" Placeholder="Ingredient/Food name" IsEnabled="false"/>
+        <Entry x:Name="f_FIIngredient" Placeholder="Ingredient" IsEnabled="false" Text="{Binding FK_IngredientID}"/>
         <!-- button to choose ingredient from list which fill f_FIIngredient -->
         <Button x:Name="btn_choose_ingredient" Text="Choose ingredient" />
       </StackLayout>
     </StackLayout>
     <StackLayout  Padding="5,10">
       <Label TextColor="#345c67" FontSize = "20" FontAttributes="Bold" Text="Quantity (g):" />
-      <Entry x:Name="f_FIQuantity" Keyboard="Text"/>
+      <Entry x:Name="f_FIQuantity" Keyboard="Text" Text="{Binding FI_Quantity}"/>
     </StackLayout>
     <StackLayout  Padding="5,10">
       <Label TextColor="#345c67" FontSize = "20" FontAttributes="Bold" Text="Kcal:" />
-      <Entry x:Name="f_FIKcal" Placeholder="Kcals"  IsEnabled="false"/>
+      <Entry x:Name="f_FIKcal" Placeholder="Kcals"  IsEnabled="false" Text="{Binding FI_Kcal}"/>
     </StackLayout>
 
     <Button x:Name="btn_save" Text="Save" />

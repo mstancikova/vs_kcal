@@ -1,4 +1,5 @@
-﻿using System;
+﻿using kcal.db;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,9 +14,10 @@ namespace kcal
         public I_edit()
         {
             InitializeComponent();
-            btn_choose_categories.Clicked += Btn_choose_categories_Clicked;
+            BindingContext = Model.Instance.CurentIngredient;
+            btn_choose_categories.Clicked += Btn_choose_categories_Clicked; /* CHOOSE CATEGORY */
         }
-
+        /* CHOOSE CATEGORY */
         private void Btn_choose_categories_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Categories());

@@ -1,13 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:kcal;assembly=kcal"
              x:Class="kcal.C_edit"
              Title="Category new or edit">
 
     <StackLayout Padding="5,10">
       
       <Label TextColor="#345c67" FontSize = "20" FontAttributes="Bold" Text="Category name:" />
-      <Entry x:Name="f_Cname" Keyboard="Text" Placeholder="Category name"/>
+      <Entry x:Name="f_Cname" Keyboard="Text" Placeholder="Category name" Text="{Binding CName}"/>
 
       <Button x:Name="btn_save" Text="Save" />
       

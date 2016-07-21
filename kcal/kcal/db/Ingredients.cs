@@ -9,7 +9,7 @@ namespace kcal.db
     public class Ingredients
     {
         public int ID { get; set; }
-        public string FK_CID { get; set; }
+        public string ICName { get; set; }
         public string IName { get; set; }
         public double IKcalg { get; set; }
     }

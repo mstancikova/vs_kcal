@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:kcal;assembly=kcal"
              x:Class="kcal.I_edit"
              Title="Diary Entry">
 
@@ -8,18 +9,18 @@
     <StackLayout  Padding="5,10">
       <Label TextColor="#345c67" FontSize = "20" FontAttributes="Bold" Text="Category:" />
       <StackLayout Orientation="Horizontal">
-        <Entry x:Name="f_ICategory" Placeholder="Category name" IsEnabled="false"/>
+        <Entry x:Name="f_ICategory" Placeholder="Category name" IsEnabled="false" Text="{Binding ICName}"/>
         <!-- button to choose category from list which fill f_ICategory -->
         <Button x:Name="btn_choose_categories" Text="Choose category" />
       </StackLayout>
     </StackLayout>
     <StackLayout  Padding="5,10">
       <Label TextColor="#345c67" FontSize = "20" FontAttributes="Bold" Text="Ingredient name:" />
-      <Entry x:Name="f_IName" Keyboard="Text" Placeholder="Ingredient name"/>
+      <Entry x:Name="f_IName" Keyboard="Text" Placeholder="Ingredient name" Text="{Binding IName}"/>
     </StackLayout>
     <StackLayout  Padding="5,10">
       <Label TextColor="#345c67" FontSize = "20" FontAttributes="Bold" Text="Kcal/g:" />
-      <Entry x:Name="f_IKcalg" Keyboard="Text" Placeholder="Kcal on gram"/>
+      <Entry x:Name="f_IKcalg" Keyboard="Text" Placeholder="Kcal on gram" Text="{Binding IKcalg}"/>
     </StackLayout>
     
     <Button x:Name="btn_save" Text="Save" />

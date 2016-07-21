@@ -1,4 +1,5 @@
-﻿using System;
+﻿using kcal.db;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ namespace kcal
         public F_edit()
         {
             InitializeComponent();
+            BindingContext = Model.Instance.CurentFood;
         }
     }
 }

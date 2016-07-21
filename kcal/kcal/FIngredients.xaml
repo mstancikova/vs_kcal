@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:kcal;assembly=kcal"
              x:Class="kcal.FIngredients"
              Title="Food Ingredients List">
 
@@ -8,24 +9,38 @@
     <ToolbarItem x:Name="btn_addfoodingredient" Name="Add" />
   </ContentPage.ToolbarItems>
 
-  <ListView x:Name="FoodIngredients">
-    <ListView.ItemTemplate>
-      <DataTemplate>
-        <ViewCell>
-          <ViewCell.View>
-            <StackLayout Padding="5, 5, 0, 5"
-                         Orientation="Horizontal"
-                         Spacing="15">
-              <Label Text="{Binding ID}" />
-              <Label Text="{Binding FK_FoodID}" />
-              <Label Text="{Binding FK_IngredientID}" />
-              <Label Text="{Binding FI_Quantity}" />
-              <Label Text="{Binding FI_Kcal}" />
-            </StackLayout>
-          </ViewCell.View>
-        </ViewCell>
-      </DataTemplate>
-    </ListView.ItemTemplate>
-  </ListView>
-  
+  <StackLayout>
+    <Label x:Name="textLabel" />
+    <ListView x:Name="FoodIngredients">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+
+            <ViewCell.ContextActions>
+              <MenuItem Text="Edit" Clicked="cm_btn_Edit" CommandParameter="{Binding .}"/>
+              <MenuItem Text="Delete" Clicked="cm_btn_Delete" CommandParameter="{Binding .}"/>
+            </ViewCell.ContextActions>
+            
+            <ViewCell.View>
+              <StackLayout Padding="5, 5, 0, 5"
+                           Orientation="Horizontal"
+                           Spacing="15">
+                <Label Text="{Binding ID}" />
+                <Label Text="{Binding FK_FoodID}" />
+                <Label Text="{Binding FK_IngredientID}" />
+                <Label Text="{Binding FI_Quantity}" />
+                <Label Text="{Binding FI_Kcal}" />
+              </StackLayout>
+            </ViewCell.View>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+
+    <StackLayout Orientation="Vertical">
+      <Label x:Name="textLabelforContext" />
+    </StackLayout>
+
+  </StackLayout>
+
 </ContentPage>
