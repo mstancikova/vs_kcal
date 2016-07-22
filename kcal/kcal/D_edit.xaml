@@ -20,8 +20,9 @@
       <Label TextColor="#345c67" FontSize = "20" FontAttributes="Bold" Text="Quantity (g):" />
       <Entry x:Name="f_DQuantity" Keyboard="Text"/>
     </StackLayout>
-
-    <Button x:Name="btn_save" Text="Save" />
+    <StackLayout Padding="5,10">
+      <Button x:Name="btn_save" Text="Save"/>
+    </StackLayout>
   </StackLayout>
   
 </ContentPage>

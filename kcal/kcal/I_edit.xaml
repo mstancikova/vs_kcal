@@ -22,8 +22,9 @@
       <Label TextColor="#345c67" FontSize = "20" FontAttributes="Bold" Text="Kcal/g:" />
       <Entry x:Name="f_IKcalg" Keyboard="Text" Placeholder="Kcal on gram" Text="{Binding IKcalg}"/>
     </StackLayout>
-    
-    <Button x:Name="btn_save" Text="Save" />
+    <StackLayout>
+      <Button x:Name="btn_save" Text="Save" />
+    </StackLayout>
   </StackLayout>
   
 </ContentPage>

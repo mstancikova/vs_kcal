@@ -22,8 +22,9 @@
       <Label TextColor="#345c67" FontSize = "20" FontAttributes="Bold" Text="Kcal:" />
       <Entry x:Name="f_FIKcal" Placeholder="Kcals"  IsEnabled="false" Text="{Binding FI_Kcal}"/>
     </StackLayout>
-
-    <Button x:Name="btn_save" Text="Save" />
+    <StackLayout>
+      <Button x:Name="btn_save" Text="Save" />
+    </StackLayout>
   </StackLayout>
   
 </ContentPage>

@@ -42,5 +42,7 @@
     <Label x:Name="textLabelforContext" />
    </StackLayout>
    
- </StackLayout> 
+ </StackLayout>
+  
+  
 </ContentPage>
