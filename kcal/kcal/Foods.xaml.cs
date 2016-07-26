@@ -1,6 +1,7 @@
 ﻿using kcal.db;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,27 @@ namespace kcal
             FoodsList.ItemTapped += FoodsList_ItemTapped;       /* TAPPED ITEM */ 
         }
         /* TAPPED ITEM */
-        private void FoodsList_ItemTapped(object sender, ItemTappedEventArgs e)
+        async void FoodsList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             textLabel.Text = (e.Item as db.Foods).FName;
+
+            var action = await DisplayActionSheet("Actions for: " + textLabel.Text, "Cancel", null, "Select", "Add Ingredients", "Edit", "Delete");
+            if (action == "Select")
+            {
+                Debug.WriteLine("Select Action: " + action);
+            }
+            else if (action == "Add Ingredients")
+            {
+                Debug.WriteLine("Add Ingredients Action: " + action);
+            }
+            else if (action == "Edit")
+            {
+                Debug.WriteLine("Edit Action: " + action);
+            }
+            else if (action == "Delete")
+            {
+                Debug.WriteLine("Delete Action: " + action);
+            }
         }
         /* SELECTED ITEM */
         private void FoodsList_ItemSelected(object sender, SelectedItemChangedEventArgs e)

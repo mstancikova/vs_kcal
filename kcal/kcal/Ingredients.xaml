@@ -17,10 +17,10 @@
         <DataTemplate>
           <ViewCell>
 
-            <ViewCell.ContextActions>
+            <!--<ViewCell.ContextActions>
               <MenuItem Text="Edit" Clicked="cm_btn_Edit" CommandParameter="{Binding .}"/>
               <MenuItem Text="Delete" Clicked="cm_btn_Delete" CommandParameter="{Binding .}"/>
-            </ViewCell.ContextActions>
+            </ViewCell.ContextActions>-->
 
             <ViewCell.View>
               <StackLayout Padding="5, 5, 0, 5"
