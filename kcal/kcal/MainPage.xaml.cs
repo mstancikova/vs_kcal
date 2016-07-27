@@ -42,7 +42,7 @@ namespace kcal
 
         private void Btn_diario_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Diario());
+            Navigation.PushAsync(new Diary());
         }
     }
 }

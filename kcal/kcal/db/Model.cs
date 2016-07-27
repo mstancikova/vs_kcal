@@ -9,6 +9,7 @@ namespace kcal.db
 {
     public class Model
     {
+        public Diary CurentDiaryEntry { get; set; }
         public Category CurentCategory{ get; set; }
         public Ingredients CurentIngredient { get; set; }
         public Foods CurentFood { get; set; }
@@ -33,6 +34,17 @@ namespace kcal.db
             }
         #endregion
         #region dataFunctions
+        public IList<Diary> Diary
+        {
+            get
+            {
+                List<Diary> tmp = new List<Diary>();
+                tmp.Add(new Diary() { ID = 1, DDate = "27/07/2016", FK_IngredientID = 2, FK_FoodID = null });
+                tmp.Add(new Diary() { ID = 1, DDate = "27/07/2016", FK_IngredientID = 1, FK_FoodID = null });
+                tmp.Add(new Diary() { ID = 1, DDate = "27/07/2016", FK_IngredientID = null, FK_FoodID = 1 });
+                return tmp;
+            }
+        }
         public IList<Category> Categories
         {
             get
@@ -67,7 +79,7 @@ namespace kcal.db
             get
             {
                 List<Foods> tmp = new List<Foods>();
-                tmp.Add(new Foods() { ID = 1, FName = "Zemiakova", FKcalg = 0.85 });
+                tmp.Add(new Foods() { ID = 1, FName = "Zemiakova kasa", FKcalg = 7.5 });
                 tmp.Add(new Foods() { ID = 2, FName = "Zeleninova polievka", FKcalg = 0.25 });
                 return tmp;
             }
@@ -78,9 +90,32 @@ namespace kcal.db
             get
             {
                 List<FIngredients> tmp = new List<FIngredients>();
-                tmp.Add(new FIngredients() { ID = 1, FK_FoodID = 1, FK_IngredientID = 1, FI_Quantity = 100, FI_Kcal = 350 });
+                tmp.Add(new FIngredients() { ID = 1, FK_FoodID = 1, FK_IngredientID = 6, FI_Quantity = 100, FI_Kcal = 750 });
                 return tmp;
             }
+        }
+        #endregion
+
+        #region diary_functions
+        public string getFoodNameById(int ID)
+        {
+           try
+            {
+                return Foods.Where(i => i.ID == ID).First().FName;
+            }catch(Exception e) { }
+
+            return "Not Found!";    
+        }
+
+        public string getIngredientNameById(int ID)
+        {
+            try
+            {
+                return Ingredients.Where(i => i.ID == ID).First().IName;
+            }
+            catch (Exception e) { }
+
+            return "Not Found!";
         }
         #endregion
     }
