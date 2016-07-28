@@ -14,7 +14,7 @@
         <Button x:Name="btn_choose_food" Text="Choose food" />
       </StackLayout>
       <Label TextColor="#345c67" FontSize = "20" FontAttributes="Bold" Text="Name:" />
-      <Entry x:Name="f_DEntry" Text="{Binding DEntry}" IsEnabled="false"/>
+      <Entry x:Name="f_DEntry" Text="{Binding Entry}" IsEnabled="false"/>
     </StackLayout>
     <StackLayout  Padding="5,10">
       <Label TextColor="#345c67" FontSize = "20" FontAttributes="Bold" Text="Quantity (g):" />

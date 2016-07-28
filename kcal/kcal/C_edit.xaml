@@ -8,7 +8,7 @@
   <StackLayout>
     <StackLayout Padding="5,10">     
       <Label TextColor="#345c67" FontSize = "20" FontAttributes="Bold" Text="Category name:" />
-      <Entry x:Name="f_Cname" Keyboard="Text" Placeholder="Category name" Text="{Binding CName}"/>
+      <Entry x:Name="f_Cname" Keyboard="Text" Placeholder="Category name" Text="{Binding Name}"/>
     </StackLayout>
     <StackLayout Padding="5,10">
       <Button x:Name="btn_save" Text="Save"/>

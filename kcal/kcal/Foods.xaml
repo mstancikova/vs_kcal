@@ -6,7 +6,7 @@
              Title="Foods">
 
   <ContentPage.ToolbarItems>
-    <ToolbarItem x:Name="btn_addfood" Name="Add" />
+    <ToolbarItem x:Name="btn_addfood" Name="Add"  Icon="add.png" />
   </ContentPage.ToolbarItems>
 
   <StackLayout>
@@ -27,9 +27,9 @@
                            Orientation="Horizontal"
                            Spacing="15">
                 <Label Text="{Binding ID}" />
-                <Label Text="{Binding FName}" 
+                <Label Text="{Binding Name}" 
                        FontAttributes="Bold" />
-                <Label Text="{Binding FKcalg}" />
+                <Label Text="{Binding Kcalg}" />
               </StackLayout>
             </ViewCell.View>
           </ViewCell>

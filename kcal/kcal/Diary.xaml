@@ -6,7 +6,7 @@
              Title="Diary">
 
   <ContentPage.ToolbarItems>
-    <ToolbarItem x:Name="btn_adddiary" Name="Add"/>
+    <ToolbarItem x:Name="btn_adddiary" Name="Add"  Icon="add.png"/>
   </ContentPage.ToolbarItems>
 
   <StackLayout>
@@ -19,9 +19,9 @@
               <StackLayout Padding="5, 5, 0, 5"
                            Orientation="Horizontal"
                            Spacing="15">
-                <Label Text="{Binding DEntry}"
+                <Label Text="{Binding Entry}"
                        FontAttributes="Bold" />
-                <Label Text="{Binding DKcal}" />
+                <Label Text="{Binding Kcal}" />
               </StackLayout>
             </ViewCell.View>
           </ViewCell>

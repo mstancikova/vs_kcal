@@ -11,7 +11,7 @@ namespace kcal.db
         public int ID { get; set; }
         public int FK_FoodID { get; set; }
         public int FK_IngredientID { get; set; }     /* then we take ingredient IName, IKcalg where this id */
-        public double FI_Quantity { get; set; }
-        public double FI_Kcal { get; set; }             /* summary of Ingredients.IKcalg per FI_Quantity */
+        public double Quantity { get; set; }
+        public double Kcals { get; set; }             /* summary of Ingredients.IKcalg per FI_Quantity */
     }
 }

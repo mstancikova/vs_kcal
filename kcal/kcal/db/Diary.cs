@@ -8,12 +8,12 @@ namespace kcal.db
 {
     public class Diary
     {
-        private string _DEntry = null;
+        private string _Entry = null;
         private int? _FK_IngredientID = null;
         private int? _FK_FoodID = null;
 
         public int ID { get; set; }
-        public string DDate { get; set; }
+        public string Date { get; set; }
         public int? FK_IngredientID
         {
             get { return _FK_IngredientID; }
@@ -22,7 +22,7 @@ namespace kcal.db
                 if (_FK_IngredientID != value)
                 {
                     _FK_IngredientID = value;
-                    _DEntry = Model.Instance.getIngredientNameById(FK_IngredientID ?? 0);
+                    _Entry = Model.Instance.getIngredientNameById(FK_IngredientID ?? 0);
                 }
             }
         }
@@ -34,27 +34,27 @@ namespace kcal.db
                 if (_FK_FoodID != value)
                 {
                     _FK_FoodID = value;
-                    _DEntry = Model.Instance.getFoodNameById(FK_FoodID ?? 0);
+                    _Entry = Model.Instance.getFoodNameById(FK_FoodID ?? 0);
                 }
             }
         }
-        public string DEntry
+        public string Entry
         {
             get
             {
-                if (_DEntry == null)
+                if (Entry == null)
                 {
                     if (FK_FoodID != null)
                     {
-                        _DEntry = Model.Instance.getFoodNameById(FK_FoodID ?? 0);
+                        _Entry = Model.Instance.getFoodNameById(FK_FoodID ?? 0);
                     }
                     else
                     {
-                        _DEntry = Model.Instance.getIngredientNameById(FK_IngredientID ?? 0);
+                        _Entry = Model.Instance.getIngredientNameById(FK_IngredientID ?? 0);
                     }
                 }
 
-                return _DEntry;
+                return _Entry;
             }
         }
         public string DQuantity { get; set; }

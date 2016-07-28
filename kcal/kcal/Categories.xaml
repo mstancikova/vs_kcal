@@ -6,7 +6,7 @@
              Title="Categories list">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="Add" x:Name="btn_addcategory" />
+        <ToolbarItem Name="Add" x:Name="btn_addcategory" Icon="add.png"/>
     </ContentPage.ToolbarItems>
 
 
@@ -34,7 +34,7 @@
                                 <Label x:Name="lbl_ID" Text="{Binding ID}"/>
                                 <Label x:Name="lbl_CName"
                                        FontAttributes="Bold"
-                                       Text="{Binding CName}" />
+                                       Text="{Binding Name}" />
                             </StackLayout>
                         </ViewCell.View>
 

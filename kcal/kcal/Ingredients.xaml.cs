@@ -22,7 +22,7 @@ namespace kcal
         /* TAPPED ITEM */
         async void IngredientsList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            textLabel.Text = (e.Item as db.Ingredients).IName;
+            textLabel.Text = (e.Item as db.Ingredients).Name;
 
             var action = await DisplayActionSheet("Actions for: " + textLabel.Text, "Cancel", null, "Select", "Edit", "Delete");
 
@@ -36,7 +36,7 @@ namespace kcal
                     await Navigation.PushAsync(new I_edit());
                     break;
                 case "Delete":
-                    var answer = await DisplayAlert("Are you sure you want to delete this ingredient?", (e.Item as db.Ingredients).IName, "Yes", "No");
+                    var answer = await DisplayAlert("Are you sure you want to delete this ingredient?", (e.Item as db.Ingredients).Name, "Yes", "No");
                     switch (answer)
                     {
                         case true:
@@ -65,7 +65,7 @@ namespace kcal
         /*public void cm_btn_Edit(object sender, EventArgs e)
         {
             MenuItem m = sender as MenuItem;
-            textLabelforContext.Text = (m.CommandParameter as db.Ingredients).IName;
+            textLabelforContext.Text = (m.CommandParameter as db.Ingredients).Name;
             Model.Instance.CurentIngredient = (m.CommandParameter as db.Ingredients);
             Navigation.PushAsync(new I_edit());
         }*/
@@ -73,7 +73,7 @@ namespace kcal
         /*public void cm_btn_Delete(object sender, EventArgs e)
         {
             MenuItem m = sender as MenuItem;
-            textLabelforContext.Text = (m.CommandParameter as db.Ingredients).IName;
+            textLabelforContext.Text = (m.CommandParameter as db.Ingredients).Name;
         }*/
     }
 }

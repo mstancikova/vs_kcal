@@ -26,7 +26,7 @@ namespace kcal
         async void DiaryList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             
-            textLabel.Text = (e.Item as db.Diary).DEntry;
+            textLabel.Text = (e.Item as db.Diary).Entry;
             
             var action = await DisplayActionSheet("Actions for:" + textLabel.Text, "Cancel", null, "Select", "Edit", "Delete");
 
@@ -40,7 +40,7 @@ namespace kcal
                     await Navigation.PushAsync(new D_edit());
                     break;
                 case "Delete":
-                    var answer = await DisplayAlert("Are you sure you want to delete this diary entry?", (e.Item as db.Diary).DEntry, "Yes", "No");
+                    var answer = await DisplayAlert("Are you sure you want to delete this diary entry?", (e.Item as db.Diary).Entry, "Yes", "No");
                     switch (answer)
                     {
                         case true:

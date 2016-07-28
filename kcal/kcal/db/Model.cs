@@ -39,9 +39,9 @@ namespace kcal.db
             get
             {
                 List<Diary> tmp = new List<Diary>();
-                tmp.Add(new Diary() { ID = 1, DDate = "27/07/2016", FK_IngredientID = 2, FK_FoodID = null });
-                tmp.Add(new Diary() { ID = 1, DDate = "27/07/2016", FK_IngredientID = 1, FK_FoodID = null });
-                tmp.Add(new Diary() { ID = 1, DDate = "27/07/2016", FK_IngredientID = null, FK_FoodID = 1 });
+                tmp.Add(new Diary() { ID = 1, Date = "27/07/2016", FK_IngredientID = 2, FK_FoodID = null });
+                tmp.Add(new Diary() { ID = 1, Date = "27/07/2016", FK_IngredientID = 1, FK_FoodID = null });
+                tmp.Add(new Diary() { ID = 1, Date = "27/07/2016", FK_IngredientID = null, FK_FoodID = 1 });
                 return tmp;
             }
         }
@@ -50,10 +50,10 @@ namespace kcal.db
             get
             {
                 List<Category> tmp = new List<Category>();
-                tmp.Add(new Category() { ID = 1, CName = "Zelenina" });
-                tmp.Add(new Category() { ID = 2, CName = "Ovocie" });
-                tmp.Add(new Category() { ID = 3, CName = "Mliecne vyrobky" });
-                tmp.Add(new Category() { ID = 4, CName = "Maso" });
+                tmp.Add(new Category() { ID = 1, Name = "Zelenina" });
+                tmp.Add(new Category() { ID = 2, Name = "Ovocie" });
+                tmp.Add(new Category() { ID = 3, Name = "Mliecne vyrobky" });
+                tmp.Add(new Category() { ID = 4, Name = "Maso" });
                 return tmp;
             }
 
@@ -64,12 +64,12 @@ namespace kcal.db
             get
             {
                 List<Ingredients> tmp = new List<Ingredients>();
-                tmp.Add(new Ingredients() { ID = 1, ICName = "Zelenina", IName = "Mrkva", IKcalg = 0.35 });
-                tmp.Add(new Ingredients() { ID = 2, ICName = "Zelenina", IName = "Zemiaky", IKcalg = 0.77 });
-                tmp.Add(new Ingredients() { ID = 3, ICName = "Ovocie", IName = "Jablko", IKcalg = 0.45 });
-                tmp.Add(new Ingredients() { ID = 4, ICName = "Ovocie", IName = "Pomaranc", IKcalg = 0.34 });
-                tmp.Add(new Ingredients() { ID = 5, ICName = "Mliecne vyrobky", IName = "Mlieko ciastocne odtucnene", IKcalg = 0.48 });
-                tmp.Add(new Ingredients() { ID = 6, ICName = "Mliecne vyrobky", IName = "Maslo", IKcalg = 7.5 });
+                tmp.Add(new Ingredients() { ID = 1, CatName = "Zelenina", Name = "Mrkva", Kcalg = 0.35 });
+                tmp.Add(new Ingredients() { ID = 2, CatName = "Zelenina", Name = "Zemiaky", Kcalg = 0.77 });
+                tmp.Add(new Ingredients() { ID = 3, CatName = "Ovocie", Name = "Jablko", Kcalg = 0.45 });
+                tmp.Add(new Ingredients() { ID = 4, CatName = "Ovocie", Name = "Pomaranc", Kcalg = 0.34 });
+                tmp.Add(new Ingredients() { ID = 5, CatName = "Mliecne vyrobky", Name = "Mlieko ciastocne odtucnene", Kcalg = 0.48 });
+                tmp.Add(new Ingredients() { ID = 6, CatName = "Mliecne vyrobky", Name = "Maslo", Kcalg = 7.5 });
                 return tmp;
             }
         }
@@ -79,8 +79,8 @@ namespace kcal.db
             get
             {
                 List<Foods> tmp = new List<Foods>();
-                tmp.Add(new Foods() { ID = 1, FName = "Zemiakova kasa", FKcalg = 7.5 });
-                tmp.Add(new Foods() { ID = 2, FName = "Zeleninova polievka", FKcalg = 0.25 });
+                tmp.Add(new Foods() { ID = 1, Name = "Zemiakova kasa", Kcalg = 7.5 });
+                tmp.Add(new Foods() { ID = 2, Name = "Zeleninova polievka", Kcalg = 0.25 });
                 return tmp;
             }
         }
@@ -90,7 +90,7 @@ namespace kcal.db
             get
             {
                 List<FIngredients> tmp = new List<FIngredients>();
-                tmp.Add(new FIngredients() { ID = 1, FK_FoodID = 1, FK_IngredientID = 6, FI_Quantity = 100, FI_Kcal = 750 });
+                tmp.Add(new FIngredients() { ID = 1, FK_FoodID = 1, FK_IngredientID = 6, Quantity = 100, Kcals = 750 });
                 return tmp;
             }
         }
@@ -101,7 +101,7 @@ namespace kcal.db
         {
            try
             {
-                return Foods.Where(i => i.ID == ID).First().FName;
+                return Foods.Where(i => i.ID == ID).First().Name;
             }catch(Exception e) { }
 
             return "Not Found!";    
@@ -111,7 +111,7 @@ namespace kcal.db
         {
             try
             {
-                return Ingredients.Where(i => i.ID == ID).First().IName;
+                return Ingredients.Where(i => i.ID == ID).First().Name;
             }
             catch (Exception e) { }
 
