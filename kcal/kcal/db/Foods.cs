@@ -9,7 +9,7 @@ namespace kcal.db
     public class Foods
     {
         public int ID { get; set; }
-        public string FName { get; set; }
-        public double FKcalg { get; set; }
+        public string Name { get; set; }
+        public double Kcalg { get; set; }
     }
 }

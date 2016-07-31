@@ -28,8 +28,8 @@
                 <Label Text="{Binding ID}" />
                 <Label Text="{Binding FK_FoodID}" />
                 <Label Text="{Binding FK_IngredientID}" />
-                <Label Text="{Binding FI_Quantity}" />
-                <Label Text="{Binding FI_Kcal}" />
+                <Label Text="{Binding Quantity}" />
+                <Label Text="{Binding Kcals}" />
               </StackLayout>
             </ViewCell.View>
           </ViewCell>

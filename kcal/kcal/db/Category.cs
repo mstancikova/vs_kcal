@@ -9,6 +9,6 @@ namespace kcal.db
     public class Category
     {
         public int ID { get; set; }
-        public string CName { get; set; }
+        public string Name { get; set; }
     }
 }

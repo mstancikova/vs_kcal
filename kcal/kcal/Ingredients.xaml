@@ -6,7 +6,7 @@
              Title="Ingredients list">
 
   <ContentPage.ToolbarItems>
-    <ToolbarItem x:Name="btn_addingredient" Name="Add" />
+    <ToolbarItem x:Name="btn_addingredient" Name="Add"  Icon="add.png" />
   </ContentPage.ToolbarItems>
 
   <StackLayout>
@@ -27,10 +27,10 @@
                            Orientation="Horizontal"
                            Spacing="15">
                 <Label Text="{Binding ID}" />
-                <Label Text="{Binding ICName}"
+                <Label Text="{Binding CatName}"
                        FontAttributes="Bold" />
-                <Label Text="{Binding IName}" />
-                <Label Text="{Binding IKcalg}" />
+                <Label Text="{Binding Name}" />
+                <Label Text="{Binding Kcalg}" />
               </StackLayout>
             </ViewCell.View>
           </ViewCell>

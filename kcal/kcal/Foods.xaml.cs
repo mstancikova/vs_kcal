@@ -23,24 +23,35 @@ namespace kcal
         /* TAPPED ITEM */
         async void FoodsList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            textLabel.Text = (e.Item as db.Foods).FName;
+            textLabel.Text = (e.Item as db.Foods).Name;
 
-            var action = await DisplayActionSheet("Actions for: " + textLabel.Text, "Cancel", null, "Select", "Add Ingredients", "Edit", "Delete");
-            if (action == "Select")
+            var action = await DisplayActionSheet("Actions for: " + textLabel.Text, "Cancel", null, "Select", "Edit food name", "Edit food ingredients", "Delete");
+
+            switch (action)
             {
-                Debug.WriteLine("Select Action: " + action);
-            }
-            else if (action == "Add Ingredients")
-            {
-                Debug.WriteLine("Add Ingredients Action: " + action);
-            }
-            else if (action == "Edit")
-            {
-                Debug.WriteLine("Edit Action: " + action);
-            }
-            else if (action == "Delete")
-            {
-                Debug.WriteLine("Delete Action: " + action);
+                case "Select":
+                    Debug.WriteLine("Select Action: " + action);
+                    break;
+                case "Edit food name":
+                    Model.Instance.CurentFood = (e.Item as db.Foods);
+                    await Navigation.PushAsync(new F_edit());
+                    break;
+                case "Edit food ingredients":
+                    Model.Instance.CurentFood = (e.Item as db.Foods);
+                    await Navigation.PushAsync(new FIngredients());
+                    break;
+                case "Delete":
+                    var answer = await DisplayAlert("Are you sure you want to delete this food?", (e.Item as db.Foods).Name, "Yes", "No");
+                    switch (answer)
+                    {
+                        case true:
+                            Debug.WriteLine("Select Action: " + answer);
+                            break;
+                        case false:
+                            Debug.WriteLine("Select Action: " + answer);
+                            break;
+                    }
+                    break;
             }
         }
         /* SELECTED ITEM */
@@ -56,26 +67,26 @@ namespace kcal
 
         /* CONTEXTUAL MENU ---------- */
         /* EDIT BUTTON */
-        public void cm_btn_Edit(object sender, EventArgs e)
+        /*public void cm_btn_Edit(object sender, EventArgs e)
         {
             MenuItem m = sender as MenuItem;
-            textLabelforContext.Text = (m.CommandParameter as db.Foods).FName;
+            textLabelforContext.Text = (m.CommandParameter as db.Foods).Name;
             Model.Instance.CurentFood = (m.CommandParameter as db.Foods);
             Navigation.PushAsync(new F_edit());
-        }
+        }*/
         /* EDIT INGREDIENS */
-        public void cm_btn_EditIngredients(object sender, EventArgs e)
+       /* public void cm_btn_EditIngredients(object sender, EventArgs e)
         {
             MenuItem m = sender as MenuItem;
-            textLabelforContext.Text = (m.CommandParameter as db.Foods).FName;
+            textLabelforContext.Text = (m.CommandParameter as db.Foods).Name;
             Model.Instance.CurentFood = (m.CommandParameter as db.Foods);
-            Navigation.PushAsync(new FIngredients()); /* here need to send ID of food for show list of ingredients */
-        }
+            Navigation.PushAsync(new FIngredients());
+        }*/
         /* DELETE BUTTON */
-        public void cm_btn_Delete(object sender, EventArgs e)
+        /*public void cm_btn_Delete(object sender, EventArgs e)
         {
             MenuItem m = sender as MenuItem;
-            textLabelforContext.Text = (m.CommandParameter as db.Foods).FName;
-        }
+            textLabelforContext.Text = (m.CommandParameter as db.Foods).Name;
+        }*/
     }
 }

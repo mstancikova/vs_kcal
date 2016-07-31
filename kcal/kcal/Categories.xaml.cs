@@ -23,19 +23,34 @@ namespace kcal
         /* TAPPED ITEM */
         async void CategoriesList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            textLabel.Text = (e.Item as db.Category).CName;
+            textLabel.Text = (e.Item as db.Category).Name;
 
             var action = await DisplayActionSheet("Actions for:" + textLabel.Text, "Cancel", null, "Select", "Edit", "Delete");
-            if (action == "Select")
+
+            switch (action)
             {
-                Debug.WriteLine("Select Action: " + action);
-            }else if (action == "Edit")
-            {
-                Debug.WriteLine("Edit Action: " + action);
-            }else if(action == "Delete")
-            {
-                Debug.WriteLine("Delete Action: " + action);
+                case "Select":
+                    Debug.WriteLine("Select Action: " + action);
+                    break;
+                case "Edit":
+                    Model.Instance.CurentCategory = (e.Item as db.Category);
+                    await Navigation.PushAsync(new C_edit());
+                    break;
+                case "Delete":
+                    var answer = await DisplayAlert("Are you sure you want to delete this category?", (e.Item as db.Category).Name, "Yes", "No");
+                    switch (answer)
+                    {
+                        case true:
+                            Debug.WriteLine("Select Action: " + answer);
+                            break;
+                        case false:
+                            Debug.WriteLine("Select Action: " + answer);
+                            break;
+                    }
+                    break;
             }
+
+            
 
         }
         /* SELECTED ITEM */
@@ -52,19 +67,19 @@ namespace kcal
 
         /* CONTEXTUAL MENU ---------- */
         /* EDIT BUTTON */
-        public void cm_btn_Edit(object sender, EventArgs e)
+        /*public void cm_btn_Edit(object sender, EventArgs e)
         {
             MenuItem m = sender as MenuItem;
-            textLabelforContext.Text = (m.CommandParameter as db.Category).CName;
+            textLabelforContext.Text = (m.CommandParameter as db.Category).Name;
             Model.Instance.CurentCategory = (m.CommandParameter as db.Category);
             Navigation.PushAsync(new C_edit());
-        }
+        }*/
         /* DELETE BUTTON */
-        public void cm_btn_Delete(object sender, EventArgs e)
+        /*public void cm_btn_Delete(object sender, EventArgs e)
         {
             MenuItem m = sender as MenuItem;
-            textLabelforContext.Text = (m.CommandParameter as db.Category).CName;
-        }
+            textLabelforContext.Text = (m.CommandParameter as db.Category).Name;
+        }*/
 
     }
 }

@@ -2,41 +2,33 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:kcal;assembly=kcal"
-             x:Class="kcal.Foods"
-             Title="Foods">
+             x:Class="kcal.Diary"
+             Title="Diary">
 
   <ContentPage.ToolbarItems>
-    <ToolbarItem x:Name="btn_addfood" Name="Add"  Icon="add.png" />
+    <ToolbarItem x:Name="btn_adddiary" Name="Add"  Icon="add.png"/>
   </ContentPage.ToolbarItems>
 
   <StackLayout>
     <Label x:Name="textLabel" />
-    <ListView x:Name="FoodsList">
+    <ListView x:Name="DiaryList">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
-
-            <!--<ViewCell.ContextActions>
-              <MenuItem Text="Edit Name" Clicked="cm_btn_Edit" CommandParameter="{Binding .}"/>
-              <MenuItem Text="Ingredients" Clicked="cm_btn_EditIngredients" CommandParameter="{Binding .}"/>
-              <MenuItem Text="Delete" Clicked="cm_btn_Delete" CommandParameter="{Binding .}"/>
-            </ViewCell.ContextActions>-->
-            
             <ViewCell.View>
               <StackLayout Padding="5, 5, 0, 5"
                            Orientation="Horizontal"
                            Spacing="15">
-                <Label Text="{Binding ID}" />
-                <Label Text="{Binding Name}" 
+                <Label Text="{Binding Entry}"
                        FontAttributes="Bold" />
-                <Label Text="{Binding Kcalg}" />
+                <Label Text="{Binding Kcal}" />
               </StackLayout>
             </ViewCell.View>
           </ViewCell>
         </DataTemplate>
       </ListView.ItemTemplate>
     </ListView>
-    
+
     <StackLayout Orientation="Vertical">
       <Label x:Name="textLabelforContext" />
     </StackLayout>

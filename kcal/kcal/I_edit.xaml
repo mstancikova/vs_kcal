@@ -9,18 +9,18 @@
     <StackLayout  Padding="5,10">
       <Label TextColor="#345c67" FontSize = "20" FontAttributes="Bold" Text="Category:" />
       <StackLayout Orientation="Horizontal">
-        <Entry x:Name="f_ICategory" Placeholder="Category name" IsEnabled="false" Text="{Binding ICName}"/>
+        <Entry x:Name="f_ICategory" Placeholder="Category name" IsEnabled="false" Text="{Binding CatName}"/>
         <!-- button to choose category from list which fill f_ICategory -->
         <Button x:Name="btn_choose_categories" Text="Choose category" />
       </StackLayout>
     </StackLayout>
     <StackLayout  Padding="5,10">
       <Label TextColor="#345c67" FontSize = "20" FontAttributes="Bold" Text="Ingredient name:" />
-      <Entry x:Name="f_IName" Keyboard="Text" Placeholder="Ingredient name" Text="{Binding IName}"/>
+      <Entry x:Name="f_IName" Keyboard="Text" Placeholder="Ingredient name" Text="{Binding Name}"/>
     </StackLayout>
     <StackLayout  Padding="5,10">
       <Label TextColor="#345c67" FontSize = "20" FontAttributes="Bold" Text="Kcal/g:" />
-      <Entry x:Name="f_IKcalg" Keyboard="Text" Placeholder="Kcal on gram" Text="{Binding IKcalg}"/>
+      <Entry x:Name="f_IKcalg" Keyboard="Numeric" Placeholder="Kcal on gram" Text="{Binding Kcalg}"/>
     </StackLayout>
     <StackLayout>
       <Button x:Name="btn_save" Text="Save" />

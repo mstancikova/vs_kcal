@@ -46,12 +46,13 @@
       <DependentUpon>C_edit.xaml</DependentUpon>
     </Compile>
     <Compile Include="db\Category.cs" />
+    <Compile Include="db\Diary.cs" />
     <Compile Include="db\FIngredients.cs" />
     <Compile Include="db\Foods.cs" />
     <Compile Include="db\Ingredients.cs" />
     <Compile Include="db\Model.cs" />
-    <Compile Include="Diario.xaml.cs">
-      <DependentUpon>Diario.xaml</DependentUpon>
+    <Compile Include="Diary.xaml.cs">
+      <DependentUpon>Diary.xaml</DependentUpon>
     </Compile>
     <Compile Include="D_edit.xaml.cs">
       <DependentUpon>D_edit.xaml</DependentUpon>
@@ -94,7 +95,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Diario.xaml">
+    <EmbeddedResource Include="Diary.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
