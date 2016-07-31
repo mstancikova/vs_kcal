@@ -1,0 +1,12 @@
+{
+  "supports": {},
+  "dependencies": {
+    "NETStandard.Library": "1.6.0",
+    "Xamarin.Forms": "2.3.1.113-pre3"
+  },
+  "frameworks": {
+    "netstandard1.4": {
+      "imports": "portable-win+net45+wp8+win81+wpa8"
+    }
+  }
+}
