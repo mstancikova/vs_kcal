@@ -1,14 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SQLite;
 
 namespace kcal.db
 {
-    public class Category
+    public class Category : zerox.core.EntityBase
     {
+        [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
-        public string Name { get; set; }
+
+        private string _name;
+        public string Name
+        {
+            get { return _name; }
+            set { SetProperty(ref _name, value); }
+        }
+
     }
 }

@@ -1,19 +1,24 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace kcal.db
 {
     public class Model
     {
-        public Diary CurentDiaryEntry { get; set; }
-        public Category CurentCategory{ get; set; }
-        public Ingredients CurentIngredient { get; set; }
-        public Foods CurentFood { get; set; }
-        public FIngredients CurentFIngredient { get; set; }
+        #region DBconnection
+
+        //access to DB must be synchronized, so this is lock
+        private static object _locker = new object();
+        // database connection, we need one for application run
+        // it will be open in constructor
+        private SQLiteConnection _conn;
+        #endregion
 
         #region singleton
         private static Model instance;
@@ -21,6 +26,17 @@ namespace kcal.db
         //singleton need private ctor
         private Model()
         {
+            // initialize database connection
+            _conn = DependencyService.Get<zerox.core.IDb>().GetConnection("kcal");
+
+
+            // create the tables (if they exists it will skip this )
+            _conn.CreateTable<Category>();
+
+
+            // populate eventually empty tables
+            populate_tables();
+
         }
 
         public static Model Instance {
@@ -33,6 +49,17 @@ namespace kcal.db
                 }
             }
         #endregion
+
+
+        #region Currents
+        public Diary CurentDiaryEntry { get; set; }
+        public Category CurentCategory { get; set; }
+        public Ingredients CurentIngredient { get; set; }
+        public Foods CurentFood { get; set; }
+        public FIngredients CurentFIngredient { get; set; }
+        #endregion
+
+
         #region dataFunctions
         public IList<Diary> Diary
         {
@@ -45,18 +72,20 @@ namespace kcal.db
                 return tmp;
             }
         }
-        public IList<Category> Categories
+        public IEnumerable<Category> Categories
         {
             get
             {
+                return _conn.Table<Category>();
+                /*
                 List<Category> tmp = new List<Category>();
                 tmp.Add(new Category() { ID = 1, Name = "Zelenina" });
                 tmp.Add(new Category() { ID = 2, Name = "Ovocie" });
                 tmp.Add(new Category() { ID = 3, Name = "Mliecne vyrobky" });
                 tmp.Add(new Category() { ID = 4, Name = "Maso" });
                 return tmp;
+                */
             }
-
         }
 
         public IList<Ingredients> Ingredients
@@ -117,6 +146,21 @@ namespace kcal.db
 
             return "Not Found!";
         }
+        #endregion
+
+
+        #region TESTING
+        private void populate_tables() {
+            // categories
+            if(_conn.Table<Category>().Count() <= 0)
+            {
+                _conn.Insert(new Category() { Name = "Zelenina" });
+                _conn.Insert(new Category() { Name = "Ovocie" });
+                _conn.Insert(new Category() { Name = "Mliecne vyrobky" });
+                _conn.Insert(new Category() { Name = "Maso" });
+            }
+        }
+
         #endregion
     }
 }
